@@ -13,32 +13,44 @@
   
               <img  height="200px" src="{{ book.thumbnailUrl }}" />
       
+              <form (ngSubmit)="saveBook()">
               <ion-list >
-                  <ion-item>                
-                      <strong>Title:</strong>  {{ book.title }}            
-                  </ion-item>
-                <ion-item>                
-                    <strong>Author:</strong>  {{ book.author }}  
+                <ion-item>                                      
+                    <ion-label>Title:</ion-label>      
+                    <ion-input type="text" [(ngModel)]="book.title" name="title"></ion-input>   
                 </ion-item>
-
                 <ion-item>                
-                    <strong>Pages:</strong> {{ book.pageCount }}  pages              
-                  </ion-item>
-
-                  <ion-item>                
-                      <strong>Published Date:</strong>  {{ book.publishedDate|date:'dd/MM//yyy' }}
-                  </ion-item>
-                  <ion-item>                
-                        <strong>ISBN:</strong>  {{ book.isbn }}
-                  </ion-item>
-                  <ion-item text-wrap>                
-                      <strong>Description:</strong>  {{ book.shortDescription }}
+                    <ion-item>                                      
+                        <ion-label>Author:</ion-label>      
+                        <ion-input type="text" [(ngModel)]="book.author" name="author"></ion-input>   
+                    </ion-item>
+                    
+                    <ion-item>                                       
+                        <ion-label>Pages:</ion-label>      
+                        <ion-input type="number"  [(ngModel)]="book.pageCount" name="pageCount"></ion-input>           
+                    </ion-item>
+                    
+                    <ion-item>                
+                        <ion-label stacked>Published Date:</ion-label>
+                        <ion-datetime name="publishedDate" pickerFormat="D MMM YYYY" displayFormat="D MMM YYYY" [(ngModel)]="book.publishedDate"></ion-datetime>
+                    </ion-item>
+                    <ion-item>                                      
+                        <ion-label>ISBN:</ion-label>      
+                        <ion-input type="text" [(ngModel)]="book.isbn" name="isbn"></ion-input>   
+                    </ion-item>
+                  <ion-item text-wrap> 
+                        <ion-item text-wrap>                
+                        <strong>Description:</strong>  {{ book.shortDescription }}
+                        </ion-item>                
                 </ion-item>      
               </ion-list>
-              
-              <button ion-button full color="dark"(click)="goBack()">
+              <button ion-button full type="submit">
+                  save
+              </button>
+              <button ion-button full color="dark" (click)="goBack()">
                 Back
               </button>
+              <form>
 </ion-row>
 </ion-grid>
 </ion-content>

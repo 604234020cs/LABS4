@@ -1,3 +1,4 @@
+import { BookeditPage } from './../bookedit/bookedit';
 import { BookdetailPage } from './../bookdetail/bookdetail';
 import { BookRestProvider } from './../../providers/book-rest/book-rest';
 import { Book } from './../../models/book.model';
@@ -28,8 +29,9 @@ export class BookListPage {
     console.log('ionViewDidLoad BookListPage');
   }
 
-goBack(){
-  this.navCtrl.pop();
+
+  BookEdit(bookid:number){
+  this.navCtrl.push(BookeditPage);
 }
   
 showDetail(bookid:number){
